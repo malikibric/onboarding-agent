@@ -1,0 +1,55 @@
+{
+  "_comment": "Example rules from the fictional Meridian Abrasives case. Replace per client. Each rule traces to a line in knowledge/CLAUDE.md. Patterns match case-insensitively; use \\b word boundaries — a bare substring matches inside other words ('net 30' matches 'internet 30').",
+  "rules": [
+    {
+      "id": "QUOTE-001",
+      "type": "required",
+      "pattern": "expir\\w*|valid (for|until|through)",
+      "description": "quote expiry (30 days — mills move pricing)",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §9"
+    },
+    {
+      "id": "QUOTE-002",
+      "type": "required",
+      "pattern": "\\bnet[ -]?30\\b|\\bprepa(y|id)",
+      "description": "payment terms",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §7"
+    },
+    {
+      "id": "QUOTE-003",
+      "type": "required",
+      "pattern": "quote\\s*#|quote no|quote number",
+      "description": "quote number",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §9"
+    },
+    {
+      "id": "TERR-001",
+      "type": "forbidden",
+      "pattern": "\\bnorton\\b",
+      "description": "Norton line — territory boundary undocumented, escalate until resolved",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §10"
+    },
+    {
+      "id": "CERT-001",
+      "type": "forbidden",
+      "pattern": "\\baerospace\\b",
+      "description": "aerospace-grade pricing requires Ray, always",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §10"
+    },
+    {
+      "id": "VALUE-001",
+      "type": "threshold",
+      "pattern": "total\\b[^\\d\\n]{0,24}(\\d{1,3}(?:[ .,]\\d{3})+(?:[.,]\\d{1,2})?|\\d+(?:[.,]\\d+)?)",
+      "max": 50000,
+      "description": "order value over inside-sales limit",
+      "escalate_to": "Marcus / outside sales",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §11"
+    }
+  ]
+}

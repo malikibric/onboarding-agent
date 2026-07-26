@@ -1,0 +1,18 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# OS
+.DS_Store
+
+# Claude Code — personal/local permission overrides, not shared
+.claude/settings.local.json
+
+# Runtime — hashed audit log, regenerated and pruned at runtime; not a versioned artifact.
+# runtime/results.json, quality-results.json, full-run.log, transcripts/, and
+# manual-transcripts/ ARE checked in deliberately — they are the behavioural evidence
+# this project's release gate and documentation point to. Only the operational log is
+# excluded here.
+deployments/altruist-onboarding/runtime/conversation-log.jsonl

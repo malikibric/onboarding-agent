@@ -1,0 +1,583 @@
+{
+  "_schema": "agentcheck/factbase/1",
+  "_purpose": "Canonical authority for what this agent may state and how confidently. Prose files in knowledge/public/ cite these ids inline as [ALT-###]; they do not re-establish tier or provenance. One authority per fact.",
+  "_generated": false,
+  "_maintained_by_hand": true,
+  "documents": {
+    "PACK": {
+      "path": "altruist_onboarding_agent_knowledge.md",
+      "role": "primary grounding document",
+      "authority": "highest",
+      "external_sources_cited": false
+    },
+    "SEC": {
+      "path": "altruist-knowledge.md",
+      "role": "secondary domain context",
+      "authority": "supporting",
+      "external_sources_cited": false
+    },
+    "PLAN": {
+      "path": "new-agent.md",
+      "role": "old strategic draft — NOT an authority",
+      "authority": "none",
+      "external_sources_cited": false
+    }
+  },
+  "tiers": {
+    "P1": {
+      "answerable": true,
+      "definition": "Stated in PACK. Corroboration by SEC strengthens but is not required.",
+      "hedge": "none required"
+    },
+    "P2": {
+      "answerable": true,
+      "definition": "Stated in SEC and consistent with PACK (PACK states a compatible weaker or overlapping form).",
+      "hedge": "state plainly; may note it is public positioning where the claim is promotional"
+    },
+    "P3": {
+      "answerable": true,
+      "definition": "Stated in SEC only, PACK silent. May also appear in PLAN; PLAN adds no authority.",
+      "hedge": "attribute explicitly ('Altruist's public materials describe...'); never state as independently confirmed"
+    },
+    "Q": {
+      "answerable": false,
+      "definition": "PLAN-only, or contradicted across documents, or a specific figure inflating a vaguer sourced claim.",
+      "hedge": "NOT answerable. Agent must treat as unknown and route to validation-backlog.md."
+    }
+  },
+  "_provenance_warning": "None of the three documents cites a resolvable external source. Tier reflects DOCUMENT provenance within this repository, not external verification. Every fact below has external_verified=false. Two documents agreeing is corroboration between unverified secondary artifacts, not proof. See docs/assumptions-and-unknowns.md A-01.",
+  "facts": [
+    {
+      "id": "ALT-001",
+      "topic": "identity",
+      "statement": "Altruist describes itself as a wealth platform and AI-forward custodian built for independent advisors and RIAs.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": ["SEC"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-002",
+      "topic": "mission",
+      "statement": "Altruist states its mission is to make independent financial advice better, more affordable, and more accessible to everyone.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": ["SEC"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-003",
+      "topic": "scale",
+      "statement": "Altruist publicly says it serves 6,000+ advisors.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "SEC states the vaguer 'thousands of advisors' and 'one of the largest custodians by advisors served' — consistent, not contradictory. PLAN's 'third-largest custodian' is a ranking claim and is quarantined as ALT-Q07."
+    },
+    {
+      "id": "ALT-004",
+      "topic": "product-surface",
+      "statement": "Altruist's public product pages describe account creation, transfers/ACATs, billing, reporting, integrations, client portal access, custody, model marketplace, high-yield cash, and trading.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": ["SEC"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "Unnumbered list only. PLAN's '30+ account types' and '500+ models' are quarantined as ALT-Q10."
+    },
+    {
+      "id": "ALT-005",
+      "topic": "integrations",
+      "statement": "Altruist says firms can use 25+ integrations across CRM, financial planning, and custodial AI workflows.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": ["SEC"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "SEC adds 'portfolio accounting systems' to the integration categories — see ALT-020."
+    },
+    {
+      "id": "ALT-006",
+      "topic": "hazel",
+      "statement": "Altruist publicly markets Hazel as its AI platform, described as drawing on real-time custodial data plus CRM, email, and notes to support faster answers and more personalized advice.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": ["SEC"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-007",
+      "topic": "customer-onboarding",
+      "statement": "Altruist publicly states that many firms are up and running in about 30 days.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "PLAN's day-5 / day-15 / day-30 milestone schedule is specificity inflation over this claim and is quarantined as ALT-Q09."
+    },
+    {
+      "id": "ALT-008",
+      "topic": "customer-onboarding",
+      "statement": "Altruist's public onboarding messaging says clients receive a dedicated onboarding manager.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-009",
+      "topic": "customer-onboarding",
+      "statement": "A public timeline describes joining Altruist and setting firm preferences, onboarding clients, configuring portfolios/fees/integrations, and going live.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "Stages are unnumbered in the source. Do not attach day numbers."
+    },
+    {
+      "id": "ALT-010",
+      "topic": "culture",
+      "statement": "Altruist careers messaging highlights three core values: Kindness, Brilliance, and Grit.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-011",
+      "topic": "culture",
+      "statement": "Altruist careers messaging emphasizes purpose, growth, equity/compensation, health benefits from day one, work-life integration, and inclusivity.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": true,
+      "attribution": "This is public careers-page messaging. It is not a description of any actual benefits package, and the agent must not answer benefits-enrollment or compensation questions from it.",
+      "notes": "Sensitive because benefits/compensation adjacency. PACK forbids compensation and benefits detail beyond public careers copy."
+    },
+    {
+      "id": "ALT-012",
+      "topic": "offices",
+      "statement": "Publicly listed office locations include Los Angeles, San Francisco, and Dallas.",
+      "tier": "P1",
+      "sources": ["PACK"],
+      "corroborated_by": ["SEC"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "PACK and SEC agree. PLAN's 'HQ Culver City, CA' is unsupported by both and is quarantined as ALT-Q01."
+    },
+    {
+      "id": "ALT-013",
+      "topic": "customer-segment",
+      "statement": "Altruist's users are independent RIAs and wealth management firms seeking integrated custody, trading, and portfolio management software rather than a patchwork of legacy tools.",
+      "tier": "P2",
+      "sources": ["SEC"],
+      "corroborated_by": ["PACK"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-014",
+      "topic": "mission",
+      "statement": "Altruist's public materials connect its mission to lower fees for RIAs, streamlined digital workflows in place of paper-heavy processes, and giving advisors more time for financial planning with clients.",
+      "tier": "P2",
+      "sources": ["SEC"],
+      "corroborated_by": ["PACK"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "Positioning claim. Present as what Altruist says its mission means, not as measured outcome."
+    },
+    {
+      "id": "ALT-015",
+      "topic": "product-surface",
+      "statement": "Altruist's public materials describe commission-free fractional trading in stocks and ETFs, plus support for mutual funds and model portfolios.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "PACK mentions trading and model marketplace but not these specifics. PLAN corroborates but carries no authority."
+    },
+    {
+      "id": "ALT-016",
+      "topic": "product-surface",
+      "statement": "Altruist's public materials describe automated, rules-based portfolio rebalancing through a unified advisor dashboard.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-017",
+      "topic": "product-surface",
+      "statement": "Altruist's public materials describe portfolio management supporting manual trading, automated rebalancing, custom models, unified managed accounts (UMAs), and personalized indexing including direct indexing with screens and exclusions.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-018",
+      "topic": "product-surface",
+      "statement": "Altruist's public materials describe built-in tax management including daily scanning for tax-loss harvesting and tax-sensitive rebalancing.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "Capability description only. The agent must not explain tax strategy or give tax guidance — see boundaries.json topic 'tax-advice'."
+    },
+    {
+      "id": "ALT-019",
+      "topic": "product-surface",
+      "statement": "Altruist's public materials describe access to alternative assets, margin lending, options, and faster money movement.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "PLAN additionally claims SBLOC and fully-paid lending; those specifics are quarantined as ALT-Q11."
+    },
+    {
+      "id": "ALT-020",
+      "topic": "integrations",
+      "statement": "Altruist's public materials describe integrations with CRMs, financial planning platforms, and portfolio accounting systems.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PACK"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "PACK covers CRM and financial planning; 'portfolio accounting systems' is SEC-only."
+    },
+    {
+      "id": "ALT-021",
+      "topic": "client-experience",
+      "statement": "Altruist's public materials describe a web and mobile experience where end investors can view accounts, track performance, move cash, and access statements; clients typically receive an invitation from their advisor and create a login.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-022",
+      "topic": "client-experience",
+      "statement": "Advisors drive strategy and client relationships; Altruist provides the underlying platform and the digital experience clients see day to day.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "Framing aid for new hires. Useful and low-risk."
+    },
+    {
+      "id": "ALT-023",
+      "topic": "hazel",
+      "statement": "Hazel is an AI platform built by Altruist for wealth management, which its public materials say emerged from the acquisition of Thyme, a meeting-intelligence tool.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "PLAN adds that Thyme was Y Combinator-backed; that detail is quarantined as ALT-Q13."
+    },
+    {
+      "id": "ALT-024",
+      "topic": "hazel",
+      "statement": "Hazel's publicly described capabilities include Ask Hazel (natural-language Q&A over client emails, meetings, CRM notes and documents), meeting intelligence (record, transcribe, summarize, surface action items, push to CRM or task systems), a daily digest of upcoming meetings and follow-ups, and tax planning that ingests tax returns, paystubs, statements and custodian data to propose strategies in plain language.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "Capability description. PLAN's launch dates, pricing, and subscriber counts are quarantined as ALT-Q14 through ALT-Q16."
+    },
+    {
+      "id": "ALT-025",
+      "topic": "hazel",
+      "statement": "Hazel's public materials say it is available both to firms that custody with Altruist and to firms that do not; when paired with Altruist it can use live account, holdings, and balance data.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false
+    },
+    {
+      "id": "ALT-026",
+      "topic": "hazel",
+      "statement": "Hazel's public materials say it connects to CRM, email, calendar, and document systems.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "'calendar' appears only in SEC; PACK lists custodial data, CRM, email, notes."
+    },
+    {
+      "id": "ALT-027",
+      "topic": "regulatory",
+      "statement": "Altruist's public materials describe it as a FINRA-registered broker-dealer and custodian with SIPC protection, subject to SEC and FINRA rules and independent audits of its controls.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": true,
+      "attribution": "State only as what Altruist's public materials say, never as verified regulatory fact, and never as an explanation of what any protection covers. Direct all follow-up to Compliance.",
+      "notes": "NARROW claim only. PLAN's OCC registration, 53 states and territories, Lloyd's excess coverage, Customer Protection Rule segregation, and Asset Protection Guarantee are all quarantined as ALT-Q03 through ALT-Q06. Highest-consequence area in the fact base."
+    },
+    {
+      "id": "ALT-028",
+      "topic": "hazel-security",
+      "statement": "Hazel's public security messaging says client data is not used to train foundation models, that data is encrypted, that enterprise-grade security is central to its design, and that zero-data-retention arrangements with AI providers are used where applicable.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": true,
+      "attribution": "This is Hazel's published security messaging. It is NOT a verified technical control and must never be repeated to a client, prospect, or in writing as an assurance. Direct all security questions to Security or Compliance.",
+      "notes": "PACK guardrail: treat public marketing copy as positioning, not proof of internal process. Audit K2.11 flags this specifically."
+    },
+    {
+      "id": "ALT-029",
+      "topic": "identity",
+      "statement": "Altruist's public materials describe it as combining self-clearing brokerage and custody with integrated software in one system.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "PACK lists 'self-clearing brokerage' as a glossary term to define but does not itself assert Altruist is self-clearing. Treated as P3 for that reason."
+    },
+    {
+      "id": "ALT-030",
+      "topic": "history",
+      "statement": "Altruist's public materials say the company was founded in 2018.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": ["PLAN"],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "PACK is silent on founding year. PLAN's named founder is quarantined as ALT-Q02."
+    },
+    {
+      "id": "ALT-031",
+      "topic": "why-firms-switch",
+      "statement": "Altruist's public materials list faster digital account opening, fractional share trading, automated rebalancing, better reporting, and a modern client experience among the reasons firms choose the platform.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": true,
+      "attribution": "Present as Altruist's own stated positioning. Do NOT present as a competitive comparison or as a claim that Altruist outperforms any named competitor.",
+      "notes": "SEC phrases this partly as comparing favorably to Schwab- and Fidelity-style platforms. Competitive comparison is stripped: a new hire repeating a competitor comparison carries reputational and potentially regulatory risk. Only the neutral reason-list is answerable."
+    },
+    {
+      "id": "ALT-032",
+      "topic": "product-surface",
+      "statement": "Altruist's public materials describe digital account opening workflows intended to reduce onboarding time substantially compared with paper-based processes.",
+      "tier": "P3",
+      "sources": ["SEC"],
+      "corroborated_by": [],
+      "checked": "2026-07-25",
+      "external_verified": false,
+      "sensitive": false,
+      "notes": "SEC phrases this as 'from weeks to minutes'. That specific figure is promotional and is deliberately softened here; the numeric form is quarantined as ALT-Q17."
+    }
+  ],
+  "quarantine": [
+    {
+      "id": "ALT-Q01",
+      "topic": "offices",
+      "claim": "HQ is Culver City, CA.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only, and PACK and SEC both list Los Angeles / San Francisco / Dallas without naming a Culver City HQ.",
+      "priority": "low"
+    },
+    {
+      "id": "ALT-Q02",
+      "topic": "history",
+      "claim": "Founded by Jason Wenk.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only. Naming a specific individual without a resolvable source.",
+      "priority": "low"
+    },
+    {
+      "id": "ALT-Q03",
+      "topic": "regulatory",
+      "claim": "Four-entity structure: Altruist Corp (technology), Altruist LLC (SEC-registered investment adviser), Altruist Financial LLC (broker-dealer, FINRA/SIPC, clearing and custody), Altruist Advisors LLC (advisory), with each entity mapped to a regulator.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only, marked there as day-one material a new hire should know — i.e. designed to be repeated aloud in a regulated firm. Highest blast radius in the entire fact base.",
+      "priority": "critical"
+    },
+    {
+      "id": "ALT-Q04",
+      "topic": "regulatory",
+      "claim": "Registered with the OCC and across 53 states and territories.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only. SEC corroborates only SEC/FINRA oversight (see ALT-027).",
+      "priority": "critical"
+    },
+    {
+      "id": "ALT-Q05",
+      "topic": "regulatory",
+      "claim": "SIPC coverage plus excess coverage through Lloyd's.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only. SEC corroborates SIPC protection but says nothing about excess coverage. A wrong coverage detail repeated to an advisor is a real incident.",
+      "priority": "critical"
+    },
+    {
+      "id": "ALT-Q06",
+      "topic": "regulatory",
+      "claim": "Client assets segregated under the Customer Protection Rule; Asset Protection Guarantee covering unauthorized activity.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only. A guarantee is a contractual commitment; stating one that does not exist, or misstating its scope, is a compliance event.",
+      "priority": "critical"
+    },
+    {
+      "id": "ALT-Q07",
+      "topic": "scale",
+      "claim": "Third-largest custodian by number of RIAs served; the platform advisors most often switch to or add from Schwab.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only ranking and competitive claim. SEC says only 'one of the largest custodians by advisors served'.",
+      "priority": "high"
+    },
+    {
+      "id": "ALT-Q08",
+      "topic": "financials",
+      "claim": "Series F April 2025 of $152M led by GIC; ~$1.9B valuation; ~$602M total raised; AUM tripled two consecutive years; T3 survey market share 2.85% to 6.25%; named enterprise clients Ritholtz Wealth (~$6B), Bryn Mawr Trust Advisors (WSFS), Sowell Management, Gerber Kawasaki; SSG acquisition adding 1,600+ advisors; Altruist Clearing launched ~2024; headcount ~857.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only, volatile, and in the case of named clients involves third parties and dollar figures. core/ blocking check: no volatile data hardcoded.",
+      "priority": "high"
+    },
+    {
+      "id": "ALT-Q09",
+      "topic": "customer-onboarding",
+      "claim": "Onboarding milestones at day 5 (onboard clients), day 15 (configure firm), day 30 (go live).",
+      "sources": ["PLAN"],
+      "reason": "Specificity inflation. PACK says 'about 30 days' and describes the stages without day numbers (ALT-007, ALT-009).",
+      "priority": "medium"
+    },
+    {
+      "id": "ALT-Q10",
+      "topic": "product-surface",
+      "claim": "30+ account types; 500+ model marketplace.",
+      "sources": ["PLAN"],
+      "reason": "Specificity inflation over PACK's unnumbered product list (ALT-004).",
+      "priority": "medium"
+    },
+    {
+      "id": "ALT-Q11",
+      "topic": "product-surface",
+      "claim": "SBLOC and fully-paid securities lending.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only. SEC corroborates margin lending generally (ALT-019) but not these specific programs.",
+      "priority": "medium"
+    },
+    {
+      "id": "ALT-Q12",
+      "topic": "customer-segment",
+      "claim": "Advisor segments are Breakaway / Established / Enterprise, with different onboarding realities and service expectations.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only. Plausible industry framing but unsupported by PACK or SEC.",
+      "priority": "medium"
+    },
+    {
+      "id": "ALT-Q13",
+      "topic": "hazel",
+      "claim": "Thyme was Y Combinator-backed.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only detail on top of the corroborated acquisition (ALT-023).",
+      "priority": "low"
+    },
+    {
+      "id": "ALT-Q14",
+      "topic": "hazel",
+      "claim": "Hazel launched September 9 2025; custodial-data unification announced November 18 2025 as the first AI platform for wealth managers to unify real-time custodial data; AI tax planning released February 10 2026.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only dates plus a 'first to market' claim. PACK and SEC corroborate the capabilities but none of the dates or the primacy claim.",
+      "priority": "high"
+    },
+    {
+      "id": "ALT-Q15",
+      "topic": "hazel",
+      "claim": "Hazel sold standalone at $60/seat/month or $600/year.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only, and volatile commercial data. core/ blocking check: no volatile data hardcoded.",
+      "priority": "medium"
+    },
+    {
+      "id": "ALT-Q16",
+      "topic": "hazel",
+      "claim": "Approximately 1,600 RIA firms subscribed in the four weeks after the tax agent release (March 2026 trade coverage).",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only, perishable trade-press figure.",
+      "priority": "medium"
+    },
+    {
+      "id": "ALT-Q17",
+      "topic": "product-surface",
+      "claim": "Digital account opening reduces onboarding 'from weeks to minutes'.",
+      "sources": ["SEC"],
+      "reason": "Promotional figure. The softened capability claim is answerable as ALT-032; the numeric contrast is not, because a new hire repeating it is making a performance claim.",
+      "priority": "low"
+    },
+    {
+      "id": "ALT-Q18",
+      "topic": "hazel-architecture",
+      "claim": "Hazel's competitive edge is architectural rather than algorithmic, resting on clean, permissioned custodial data underneath; custodial data correctness is therefore the company's moat.",
+      "sources": ["PLAN"],
+      "reason": "Inference about internal architecture. PACK explicitly forbids inferring internal model stack, evaluation methods, prompt architecture, or permissions. PLAN itself labels the moat claim as inference and then instructs the hire to internalize it — the audit flags this as converting a labeled guess into taught conviction.",
+      "priority": "high"
+    },
+    {
+      "id": "ALT-Q19",
+      "topic": "competitive",
+      "claim": "Named competitors for Hazel are Jump and Zocks; named custodial competitors are Schwab, Fidelity, Pershing.",
+      "sources": ["PLAN"],
+      "reason": "PLAN-only. Competitive positioning is not needed for day-one orientation and carries repetition risk.",
+      "priority": "low"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "_schema": "agentcheck/boundaries/1",
+  "_purpose": "Declarative list of topics the agent must refuse, and where each refusal routes. Referenced by skills/answer-or-refuse.md. Tested by evals/refusal-suite.json.",
+  "_what_this_is_not": "This is NOT a runtime interceptor. Nothing here inspects a live conversation. It is (a) the single declared source the answer-or-refuse skill reads from, so the boundary list is not restated in prose and cannot drift, and (b) a testable artifact so the eval suite can prove every must-refuse case maps to a declared boundary. The keyword triggers are a coverage aid for testing, not a classifier the agent's safety depends on. See docs/test-strategy.md, gap TG-01.",
+  "_routing_policy": "The org chart is an empty template. No boundary may route to a named person or an assumed team. Every route points at a SLOT in knowledge/internal/, and the agent must state plainly that the slot is unfilled.",
+  "boundaries": [
+    {
+      "id": "B-01",
+      "topic": "internal-tools",
+      "disposition": "refuse",
+      "reason": "internal-unknown",
+      "description": "Internal tools, systems, URLs, logins, wikis, ticketing, or how to access any of them.",
+      "route_slot": "knowledge/internal/11-internal-tools.TEMPLATE.md",
+      "route_label": "internal tools list",
+      "source": "PACK must-not-pretend list",
+      "triggers": ["what tool", "which tool", "internal wiki", "vpn", "sso", "log in to", "access to", "ticketing", "jira", "confluence", "okta", "what system", "intranet", "install"]
+    },
+    {
+      "id": "B-02",
+      "topic": "people-and-org",
+      "disposition": "refuse",
+      "reason": "internal-unknown",
+      "description": "Names of managers, teammates, leadership, reporting lines, team structure, or who owns what.",
+      "route_slot": "knowledge/internal/10-internal-org-chart.TEMPLATE.md",
+      "route_label": "org chart",
+      "source": "PACK must-not-pretend list",
+      "triggers": ["who is my manager", "who do i report", "who runs", "who owns", "org chart", "reporting line", "who leads", "my team", "who should i talk to", "team structure", "skip level", "who is the"]
+    },
+    {
+      "id": "B-03",
+      "topic": "day-one-process",
+      "disposition": "refuse",
+      "reason": "internal-unknown",
+      "description": "The actual first-day checklist: laptop pickup, account activation, required forms, intro meetings, first-week schedule.",
+      "route_slot": "knowledge/internal/12-day-one-process.TEMPLATE.md",
+      "route_label": "day-one process",
+      "source": "PACK must-not-pretend list",
+      "triggers": ["first day", "day one checklist", "my laptop", "device", "activate my account", "what forms", "my schedule", "first week", "orientation session", "badge", "when do i start"]
+    },
+    {
+      "id": "B-04",
+      "topic": "internal-contacts",
+      "disposition": "refuse",
+      "reason": "internal-unknown",
+      "description": "Who to contact for HR, IT, payroll, security, facilities, or a buddy/mentor assignment.",
+      "route_slot": "knowledge/internal/13-people-and-contacts.TEMPLATE.md",
+      "route_label": "people and contacts",
+      "source": "PACK must-not-pretend list",
+      "triggers": ["who do i contact", "who do i ask", "it support", "help desk", "hr contact", "payroll contact", "my buddy", "my mentor", "facilities", "reach out to"]
+    },
+    {
+      "id": "B-05",
+      "topic": "policies-and-compliance",
+      "disposition": "refuse",
+      "reason": "internal-unknown",
+      "description": "Internal policies, code of conduct, infosec policy, acceptable use, confidentiality, customer data handling, remote work, time off, and any compliance instruction.",
+      "route_slot": "knowledge/internal/14-policies-and-compliance.TEMPLATE.md",
+      "route_label": "policies and compliance",
+      "source": "PACK must-not-pretend list + PACK guardrail on compliance instructions",
+      "triggers": ["policy", "code of conduct", "acceptable use", "confidentiality", "time off", "pto", "vacation", "remote work", "work from home", "am i allowed", "can i share", "data handling", "handbook"]
+    },
+    {
+      "id": "B-06",
+      "topic": "security-procedures",
+      "disposition": "refuse",
+      "reason": "internal-unknown",
+      "description": "Security procedures, incident response, access requests, credential handling, or any instruction with a security consequence.",
+      "route_slot": "knowledge/internal/14-policies-and-compliance.TEMPLATE.md",
+      "route_label": "security policy",
+      "source": "PACK must-not-pretend list",
+      "triggers": ["security procedure", "incident", "report a breach", "password", "credential", "mfa", "phishing", "encrypt", "access request", "permission to"]
+    },
+    {
+      "id": "B-07",
+      "topic": "role-expectations",
+      "disposition": "refuse",
+      "reason": "internal-unknown",
+      "description": "Role-specific ramp expectations, 30/60/90 plans, what the hire's manager expects, or performance criteria.",
+      "route_slot": "knowledge/internal/15-role-specific-ramps.TEMPLATE.md",
+      "route_label": "role-specific ramps",
+      "source": "PACK escalation rules",
+      "triggers": ["what should i be doing", "30/60/90", "expected of me", "my goals", "ramp plan", "am i on track", "what does my manager expect", "performance review", "my okrs"]
+    },
+    {
+      "id": "B-08",
+      "topic": "compensation-and-benefits",
+      "disposition": "refuse",
+      "reason": "out-of-scope",
+      "description": "Compensation, equity, payroll specifics, and benefits enrollment. Public careers messaging (ALT-011) may be acknowledged as messaging but never used to answer an enrollment or entitlement question.",
+      "route_slot": "knowledge/internal/13-people-and-contacts.TEMPLATE.md",
+      "route_label": "payroll / benefits contact",
+      "source": "PACK must-not-pretend list; audit F4",
+      "triggers": ["my salary", "my pay", "equity", "rsu", "vesting", "bonus", "401k", "health insurance", "enroll", "benefits", "paycheck", "stipend"]
+    },
+    {
+      "id": "B-09",
+      "topic": "employment-and-hr-advice",
+      "disposition": "refuse",
+      "reason": "out-of-scope",
+      "description": "Employment advice, workplace disputes, concerns about a colleague or manager, performance worries, or anything an HR partner would handle.",
+      "route_slot": "knowledge/internal/13-people-and-contacts.TEMPLATE.md",
+      "route_label": "HR contact",
+      "source": "audit F4",
+      "triggers": ["my manager is", "conflict with", "uncomfortable", "complain", "should i quit", "is it normal that", "my coworker", "unfair", "harassment", "worried about my job"]
+    },
+    {
+      "id": "B-10",
+      "topic": "legal-and-immigration",
+      "disposition": "refuse",
+      "reason": "out-of-scope",
+      "description": "Legal advice, contracts, visa or immigration status, right-to-work questions.",
+      "route_slot": "knowledge/internal/13-people-and-contacts.TEMPLATE.md",
+      "route_label": "HR contact",
+      "source": "audit F4",
+      "triggers": ["visa", "immigration", "h1b", "green card", "my contract", "legally", "sign this", "non-compete", "sue", "lawyer"]
+    },
+    {
+      "id": "B-11",
+      "topic": "financial-advice",
+      "disposition": "refuse",
+      "reason": "out-of-scope",
+      "description": "Any investment, tax, or financial advice — for the hire personally, for a client, or as a worked recommendation. The agent explains what platform features do; it never advises.",
+      "route_slot": null,
+      "route_label": "a licensed professional; this agent does not advise",
+      "source": "audit F4; PACK guardrail on operational instructions",
+      "triggers": ["should i invest", "what stock", "tax advice", "my taxes", "should the client", "recommend a portfolio", "is it a good investment", "how should i allocate", "what should this client do"]
+    },
+    {
+      "id": "B-12",
+      "topic": "internal-architecture",
+      "disposition": "refuse",
+      "reason": "internal-unknown",
+      "description": "Internal architecture, service boundaries, model stack, prompts, permissions, evaluation methods, deploy or on-call practice, incident history, roadmap, customer data flows.",
+      "route_slot": null,
+      "route_label": "an engineering owner; not knowable from public sources",
+      "source": "PACK must-not-pretend list; PACK Hazel boundary",
+      "triggers": ["architecture", "microservice", "which model", "what llm", "prompt", "codebase", "repo", "deploy", "on-call", "sla", "incident history", "roadmap", "tech stack", "database", "how is it built"]
+    },
+    {
+      "id": "B-13",
+      "topic": "approval-chains",
+      "disposition": "refuse",
+      "reason": "internal-unknown",
+      "description": "Who approves what, especially for anything compliance-touching. The agent must never name or infer an approver.",
+      "route_slot": "knowledge/internal/10-internal-org-chart.TEMPLATE.md",
+      "route_label": "approval chain",
+      "source": "audit critical finding 2 — the old plan's enforcement rule 5 mandated fabrication here",
+      "triggers": ["who approves", "who signs off", "do i need approval", "who needs to review", "sign-off", "get permission from", "who authorizes"]
+    },
+    {
+      "id": "B-14",
+      "topic": "quarantined-facts",
+      "disposition": "refuse",
+      "reason": "unverified",
+      "description": "Any topic whose only support is the old plan: entity structure, regulatory specifics beyond ALT-027, funding, valuation, AUM, market share, rankings, named clients, Hazel dates or pricing or subscriber counts, headcount, advisor segment names, competitor names.",
+      "route_slot": "knowledge/validation-backlog.md",
+      "route_label": "validation backlog — not yet verified",
+      "source": "audit §C bucket 3; factbase.json quarantine list",
+      "triggers": ["how much funding", "valuation", "how many employees", "aum", "market share", "series f", "entity structure", "which entity", "how much does hazel cost", "when did hazel launch", "competitors", "biggest clients", "who else uses"]
+    },
+    {
+      "id": "B-15",
+      "topic": "hazel-security-assurance",
+      "disposition": "refuse",
+      "reason": "sensitive-attribution-required",
+      "description": "Requests to confirm, guarantee, or put in writing that client data is safe, encrypted, or not used for training. ALT-028 may be described as published messaging; it may never be given as an assurance, and never to a client or prospect.",
+      "route_slot": "knowledge/internal/14-policies-and-compliance.TEMPLATE.md",
+      "route_label": "Security or Compliance",
+      "source": "audit K2.11; PACK guardrail that marketing copy is positioning not proof",
+      "triggers": ["is my data safe", "can i tell a client", "guarantee", "confirm that data", "is it secure", "prove that", "put in writing", "is client data used to train"]
+    }
+  ],
+  "answerable_topics": [
+    "identity",
+    "mission",
+    "scale",
+    "product-surface",
+    "integrations",
+    "hazel",
+    "customer-onboarding",
+    "culture",
+    "offices",
+    "customer-segment",
+    "client-experience",
+    "history",
+    "why-firms-switch",
+    "glossary",
+    "regulatory",
+    "hazel-security"
+  ],
+  "_answerable_note": "'regulatory' and 'hazel-security' appear here because ALT-027 and ALT-028 are answerable as attributed public messaging. Both carry sensitive=true in factbase.json, which forces the attribution wrapper, and both have refusing boundaries (B-15, and B-14 for the quarantined specifics) that cover the dangerous forms of those questions."
+}

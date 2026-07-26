@@ -1,0 +1,70 @@
+{
+  "_comment": "Knowledge-base lint rules for knowledge/public/*.md, run by core's validate.py UNMODIFIED. The audit's finding: core's validator gates a file before it is sent, and this agent's output is conversational, so there is no artifact to gate at runtime. Repointing it at the knowledge base is a genuine use — this agent's dominant failure mode is knowledge-borne, not phrasing-borne. Each rule traces to a line in knowledge/CLAUDE.md. Patterns are case-insensitive; \\b boundaries are used deliberately.",
+  "_scope": "knowledge/public/*.md ONLY. NOT CLAUDE.md and NOT skills/, because both legitimately quote forbidden phrasings as worked counterexamples and a regex cannot distinguish quotation from assertion. See enforcement/gates.md, 'What these rules cannot do'.",
+  "rules": [
+    {
+      "id": "FACT-001",
+      "type": "required",
+      "pattern": "\\[ALT-\\d{3}\\]",
+      "description": "at least one fact citation — a public knowledge file with no cited fact is unsourced prose",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md header"
+    },
+    {
+      "id": "NAME-001",
+      "type": "forbidden",
+      "pattern": "\\byour manager\\b|\\byour teammate\\b|\\byour buddy\\b",
+      "description": "addresses the hire's manager or teammates — the org chart is empty and no such person is known",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §3, §10"
+    },
+    {
+      "id": "ROUTE-001",
+      "type": "forbidden",
+      "pattern": "\\b(ask|contact|email|ping|message)\\s+(your\\s+)?(hr|it support|the it team|payroll|facilities)\\b",
+      "description": "routes to a named internal team; no team is confirmed to exist, routing goes to a template slot",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §11; boundaries.json _routing_policy"
+    },
+    {
+      "id": "PROMISE-001",
+      "type": "forbidden",
+      "pattern": "\\byou'?ll (get|receive|have access)\\b|\\byou will (get|receive|have access)\\b",
+      "description": "entitlement promise — the agent cannot commit to what the hire receives",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §10; boundary B-08"
+    },
+    {
+      "id": "GENERIC-001",
+      "type": "forbidden",
+      "pattern": "\\b(typically|usually|generally|normally) your\\b|\\bin most companies\\b|\\bat most firms\\b",
+      "description": "generic invention about the hire's own experience, presented as if it were knowledge of Altruist",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §10; policy/behavioral-rules.md rule 1"
+    },
+    {
+      "id": "TOOL-001",
+      "type": "forbidden",
+      "pattern": "\\b(slack|jira|confluence|notion|workday|okta|greenhouse|zendesk|servicenow)\\b",
+      "description": "names a specific internal tool; the internal tools template is empty and every such name would be a guess",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §10; boundary B-01"
+    },
+    {
+      "id": "COMPETITOR-001",
+      "type": "forbidden",
+      "pattern": "\\b(schwab|fidelity|pershing|jump|zocks)\\b",
+      "description": "names a competitor; competitor names are quarantined (ALT-Q19) and comparison is forbidden",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §10; policy/behavioral-rules.md rule 8"
+    },
+    {
+      "id": "ASSURE-001",
+      "type": "forbidden",
+      "pattern": "\\b(is|are) (fully )?(safe|secure|guaranteed|protected)\\b|\\bwe guarantee\\b|\\brest assured\\b",
+      "description": "states a security or coverage assurance; Hazel security messaging is positioning, never an assurance",
+      "severity": "block",
+      "source": "knowledge/CLAUDE.md §10; boundary B-15; ALT-028 attribution"
+    }
+  ]
+}

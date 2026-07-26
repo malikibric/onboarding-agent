@@ -1,0 +1,18 @@
+{
+  "_schema": "altruist-onboarding/glossary-review/1",
+  "status": "pending",
+  "reviewer": null,
+  "reviewed_at": null,
+  "scope": "Financial-services definitions in knowledge/public/02-glossary.md require review by a qualified domain expert before release.",
+  "high_risk_terms": [
+    "RIA",
+    "fiduciary duty",
+    "ACAT",
+    "cost basis",
+    "tax-loss harvesting",
+    "wash sale",
+    "SIPC",
+    "FDIC",
+    "self-clearing"
+  ]
+}

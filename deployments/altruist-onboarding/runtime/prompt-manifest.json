@@ -1,0 +1,17 @@
+{
+  "source_digest": "99b5ee3e89ed804d1ed31436ecc5a3c7c681705876d8ff337f3e7925c28492af",
+  "prompt_digest": "04aee6b1cd183130789519e3628af7cc573e8e529638dc238cd7f2d6766fbb09",
+  "sources": [
+    "AGENT.md",
+    "knowledge/CLAUDE.md",
+    "knowledge/factbase.json",
+    "knowledge/boundaries.json",
+    "knowledge/glossary-review.json",
+    "knowledge/quarantine-terms.json",
+    "knowledge/public/02-glossary.md",
+    "skills/answer-or-refuse.md",
+    "skills/onboard.md",
+    "skills/glossary-lookup.md",
+    "policy/behavioral-rules.md"
+  ]
+}
